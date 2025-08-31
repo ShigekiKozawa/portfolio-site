@@ -15,7 +15,7 @@
   # スパム対策を有効化
   spam_protection = true
 
-# MIME type とキャッシュ設定（追加）
+# MIME type とキャッシュ設定
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -28,6 +28,16 @@
 
 [[headers]]
   for = "*.mjs"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "*.ts"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "*.tsx"
   [headers.values]
     Content-Type = "application/javascript; charset=utf-8"
 
@@ -48,7 +58,7 @@
     Content-Type = "font/woff"
     Cache-Control = "max-age=31536000, immutable"
 
-# セキュリティヘッダー（推奨）
+# セキュリティヘッダー
 [[headers]]
   for = "/*"
   [headers.values]
