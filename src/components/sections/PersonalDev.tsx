@@ -1,32 +1,11 @@
 const PersonalDev = () => {
   const personalProjects = [
     {
-      id: 'study-group',
-      title: '技術勉強会運営',
-      description: 'エンジニア向け技術勉強会の企画・運営。React、Vue.js、AI技術に関する勉強会を定期的に開催し、技術コミュニティの発展に貢献。',
-      technologies: ['React', 'Vue.js', 'Python', 'コミュニティ運営'],
-      github: 'https://github.com/ShigekiKozawa/figma-plugin',
-    },
-    {
-      id: 'figma-plugin',
-      title: 'Figmaプラグイン開発',
-      description: 'デザインワークフローを効率化するFigmaプラグインを開発。デザイナーとエンジニアの連携を改善するツールを提供。',
-      technologies: ['TypeScript', 'Figma API', 'React'],
-      github: 'https://github.com/ShigekiKozawa/figma-plugin',
-    },
-    {
-      id: 'gas-automation',
-      title: 'Google Apps Script自動化',
-      description: '業務効率化のためのGASスクリプト開発。データ処理、レポート生成の自動化により、チームの生産性向上に貢献。',
-      technologies: ['JavaScript', 'Google Apps Script', 'Google Sheets API'],
-      github: 'https://github.com/ShigekiKozawa/gas-automation',
-    },
-    {
-      id: 'vue-library',
-      title: 'Vue.jsライブラリ',
-      description: '再利用可能なVue.jsコンポーネントライブラリの開発。開発効率向上とコード品質の統一を目指したプロジェクト。',
-      technologies: ['Vue.js', 'TypeScript', 'Vite'],
-      github: 'https://github.com/ShigekiKozawa/vue-library',
+      id: 'cursor-project-rules',
+      title: 'Cursor Project Rules',
+      description: 'Cursorのプロジェクトルールを管理するためのツール。プロジェクトでの開発効率向上に貢献しました。',
+      technologies: ['Cursor'],
+      github: 'https://github.com/ShigekiKozawa/cursor-project-rules',
     },
   ];
 

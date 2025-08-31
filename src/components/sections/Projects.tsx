@@ -3,23 +3,23 @@ const Projects = () => {
     {
       id: 'echoes',
       title: 'echoes',
-      description: 'X上で圧倒的集客が可能なインスタントウィン（即時抽選）キャンペーンや、Instagramによるハッシュタグ投稿（UGC）の促進、来店クーポン施策が行えるサービスです。',
-      image: 'https://via.placeholder.com/600x400/3b82f6/ffffff?text=echoes',
-      technologies: ['Vue.js', 'Laravel', 'MySQL', 'AWS'],
+      description: 'Xでの様々なキャンペーンの実現、Instagramによるハッシュタグ投稿（UGC）の促進、来店クーポン施策が行えるサービスです。こちらのプロダクト開発において、フロントエンドの開発を担当しています。',
+      image: `/images/echoes.png?v=${Date.now()}`,
+      technologies: ['Vue.js', 'Laravel', 'MySQL', 'AWS', 'Google Analytics'],
     },
     {
-      id: 'internal-solutions',
-      title: '社内ソリューション開発',
-      description: 'JavasSriptとPythonを活用したWebアプリケーション開発。自然言語処理、画像認識、予測分析機能を実装。',
-      image: 'https://via.placeholder.com/600x400/10b981/ffffff?text=Internal+Solutions',
-      technologies: ['javaScript', 'Python', 'FastAPI', 'MySQL', 'AWS']
+      id: 'alpha',
+      title: 'データ集積・分析ソリューション提供',
+      description: 'AI基礎開発チーム（αチーム）では、JavasScriptとPythonを用いたデータ集積ツールやGoogle Apps Scriptによるデータ分析ツールを開発。弊社のデータチームと共にデータ活用を軸としたPOCの確立に取り組んでいます。',
+      image: '/images/alpha.png',
+      technologies: ['JavaScript', 'Google Apps Script', 'MySQL', 'AWS']
     },
     {
-      id: 'web-production',
+      id: 'web-design',
       title: 'Web制作',
-      description: '9年間のWeb制作経験を活かし、企業サイト、ランディングページ、ECサイトなど様々なWebサイトの制作を担当。レスポンシブデザイン、SEO対策、パフォーマンス最適化を重視した制作を行っています。',
-      image: 'https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Web+Production',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'WordPress', 'MovableType'],
+      description: '企業サイト、ランディングページ、ECサイトなど様々なWebサイトの制作を担当。レスポンシブデザイン、SEO対策、パフォーマンス最適化を重視した制作を行っています。',
+      image: '/images/webdesign.jpg',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'WordPress', 'MovableType', 'Google Analytics'],
     },
   ];
 
@@ -40,7 +40,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-96 object-cover rounded-2xl shadow-lg hover:transform hover:-translate-y-2 transition-transform duration-300"
+                  className="w-full h-72 object-cover rounded-2xl shadow-lg hover:transform hover:-translate-y-2 transition-transform duration-300"
                 />
               </div>
               

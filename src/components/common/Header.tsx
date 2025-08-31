@@ -17,7 +17,6 @@ const Header = () => {
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
     { href: '#personal-dev', label: 'Personal Development' },
-    { href: '#skills', label: 'Skills' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -33,7 +32,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200'
+          ? 'bg-white/95 backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
@@ -44,7 +43,7 @@ const Header = () => {
             className="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
             onClick={() => scrollToSection('#hero')}
           >
-            小澤繁輝
+            Portfolio
           </a>
 
           <div className="hidden md:flex space-x-8">
@@ -79,7 +78,7 @@ const Header = () => {
         </nav>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-slate-200">
+          <div className="md:hidden bg-white">
             <div className="py-4 space-y-4">
               {navItems.map((item) => (
                 <a
