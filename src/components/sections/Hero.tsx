@@ -1,4 +1,4 @@
-import heroImage from '../../assets/images/hero.png';
+import heroImage from '../../assets/images/hero.jpg';
 import { useState, useEffect } from 'react';
 
 const Hero = () => {
@@ -39,18 +39,14 @@ const Hero = () => {
           <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-2xl">
             {/* 画像コンテナ - 内側に影 */}
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-inner">
-              {/* ローディング背景 */}
-              {!imageLoaded && (
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 animate-pulse"></div>
-              )}
-              
               {/* 背景画像 */}
               <div 
-                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-500 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{
                   backgroundImage: `url(${heroImage})`,
+                  backgroundPosition: 'center 40%',
                 }}
               ></div>
               
