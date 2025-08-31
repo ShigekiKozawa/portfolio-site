@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
+/* Critical loading optimizations */
+.hero-loading {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hero-image-loaded {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @theme {
   --color-blue-50: #eff6ff;
   --color-blue-100: #dbeafe;

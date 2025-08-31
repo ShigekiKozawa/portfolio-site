@@ -1,6 +1,27 @@
 import heroImage from '../../assets/images/hero.png';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    // 画像をプリロード
+    const img = new Image();
+    img.onload = () => {
+      setImageLoaded(true);
+      setTimeout(() => setShowContent(true), 100);
+    };
+    img.src = heroImage;
+    
+    // フォールバック: 3秒後に強制表示
+    const fallbackTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 3000);
+
+    return () => clearTimeout(fallbackTimer);
+  }, []);
+
   const scrollToAbout = () => {
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
@@ -18,9 +39,16 @@ const Hero = () => {
           <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-2xl">
             {/* 画像コンテナ - 内側に影 */}
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-inner">
+              {/* ローディング背景 */}
+              {!imageLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 animate-pulse"></div>
+              )}
+              
               {/* 背景画像 */}
               <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
                 style={{
                   backgroundImage: `url(${heroImage})`,
                 }}
@@ -35,7 +63,9 @@ const Hero = () => {
               }}></div>
               
               {/* コンテンツ */}
-              <div className="relative z-10 h-full flex items-center justify-center text-center text-white px-6">
+              <div className={`relative z-10 h-full flex items-center justify-center text-center text-white px-6 transition-all duration-700 ${
+                showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
                 <div>
                   <h1 className="hero-title drop-shadow-lg">
                     Kozawa Shigeki
