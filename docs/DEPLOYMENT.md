@@ -121,14 +121,7 @@ npm install --save-dev gh-pages
 npm run deploy
 ```
 
-#### Netlify
 
-1. Netlifyにサインアップ
-2. 「New site from Git」を選択
-3. GitHubリポジトリを選択
-4. ビルド設定：
-   - Build command: `npm run build`
-   - Publish directory: `dist`
 
 #### Vercel
 
@@ -146,11 +139,7 @@ npm run deploy
 3. 「Save」をクリック
 4. DNS設定でCNAMEレコードを追加
 
-### Netlify
 
-1. サイト設定で「Domain management」を選択
-2. 「Add custom domain」をクリック
-3. ドメインを入力してDNS設定を確認
 
 ## 📊 パフォーマンス最適化
 
