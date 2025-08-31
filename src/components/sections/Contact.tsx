@@ -23,21 +23,24 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      // Netlify Formsに送信
       const formElement = e.target as HTMLFormElement;
       const formDataToSend = new FormData(formElement);
       
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSend as unknown as Record<string, string>).toString(),
+      formDataToSend.append("access_key", "c4b2911e-a4cb-4a3c-9af8-00791e2a8be1");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        throw new Error('送信に失敗しました');
+        console.log("Error", data);
+        throw new Error(data.message || '送信に失敗しました');
       }
     } catch (error) {
       console.error('送信エラー:', error);
@@ -59,15 +62,9 @@ const Contact = () => {
 
         <div className="max-w-2xl mx-auto">
           <form 
-            name="contact" 
-            method="POST" 
-            data-netlify="true"
             onSubmit={handleSubmit} 
             className="bg-white/10 backdrop-blur-md p-8 rounded-2xl mb-12"
           >
-            {/* Netlify Forms用の隠しフィールド */}
-            <input type="hidden" name="form-name" value="contact" />
-            
             {submitStatus === 'success' && (
               <div className="bg-green-500/20 border border-green-500/30 p-4 rounded-lg mb-6">
                 <div className="flex items-center gap-3">
