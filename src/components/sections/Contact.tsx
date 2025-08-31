@@ -8,7 +8,8 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'limit_exceeded'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -21,6 +22,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
       const formElement = e.target as HTMLFormElement;
@@ -40,11 +42,19 @@ const Contact = () => {
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         console.log("Error", data);
-        throw new Error(data.message || '送信に失敗しました');
+        
+        if (data.code === 'LIMIT_EXCEEDED') {
+          setSubmitStatus('limit_exceeded');
+          setErrorMessage(data.message || '月間送信上限に達しました。');
+        } else {
+          setSubmitStatus('error');
+          setErrorMessage(data.message || '送信に失敗しました');
+        }
       }
     } catch (error) {
       console.error('送信エラー:', error);
       setSubmitStatus('error');
+      setErrorMessage('ネットワークエラーが発生しました。しばらく時間をおいて再度お試しください。');
     } finally {
       setIsSubmitting(false);
     }
@@ -87,7 +97,24 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h3 className="font-semibold">送信エラー</h3>
-                    <p className="text-sm opacity-90">送信に失敗しました。しばらく時間をおいて再度お試しください。</p>
+                    <p className="text-sm opacity-90">{errorMessage || '送信に失敗しました。しばらく時間をおいて再度お試しください。'}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {submitStatus === 'limit_exceeded' && (
+              <div className="bg-orange-500/20 border border-orange-500/30 p-4 rounded-lg mb-6">
+                <div className="flex items-center gap-3">
+                  <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.268 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                  <div>
+                    <h3 className="font-semibold">送信上限に達しました</h3>
+                    <p className="text-sm opacity-90 mb-2">{errorMessage}</p>
+                    <p className="text-sm opacity-90">
+                      直接メールでご連絡いただくか、来月再度お試しください。
+                    </p>
                   </div>
                 </div>
               </div>
