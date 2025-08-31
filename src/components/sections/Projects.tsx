@@ -1,24 +1,28 @@
+import echoesImage from '../../assets/images/echoes.png';
+import alphaImage from '../../assets/images/alpha.png';
+import webdesignImage from '../../assets/images/webdesign.jpg';
+
 const Projects = () => {
   const projects = [
     {
       id: 'echoes',
       title: 'echoes',
       description: 'Xでの様々なキャンペーンの実現、Instagramによるハッシュタグ投稿（UGC）の促進、来店クーポン施策が行えるサービスです。こちらのプロダクト開発において、フロントエンドの開発を担当しています。',
-      image: `/images/echoes.png?v=${Date.now()}`,
+      image: echoesImage,
       technologies: ['Vue.js', 'Laravel', 'MySQL', 'AWS', 'Google Analytics'],
     },
     {
       id: 'alpha',
       title: 'データ集積・分析ソリューション提供',
       description: 'AI基礎開発チーム（αチーム）では、JavasScriptとPythonを用いたデータ集積ツールやGoogle Apps Scriptによるデータ分析ツールを開発。弊社のデータチームと共にデータ活用を軸としたPOCの確立に取り組んでいます。',
-      image: '/images/alpha.png',
+      image: alphaImage,
       technologies: ['JavaScript', 'Google Apps Script', 'MySQL', 'AWS']
     },
     {
       id: 'web-design',
       title: 'Web制作',
       description: '企業サイト、ランディングページ、ECサイトなど様々なWebサイトの制作を担当。レスポンシブデザイン、SEO対策、パフォーマンス最適化を重視した制作を行っています。',
-      image: '/images/webdesign.jpg',
+      image: webdesignImage,
       technologies: ['HTML', 'CSS', 'JavaScript', 'WordPress', 'MovableType', 'Google Analytics'],
     },
   ];

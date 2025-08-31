@@ -1,3 +1,5 @@
+import aboutImage from '../../assets/images/about.jpg';
+
 const About = () => {
   return (
     <section id="about" className="section-padding bg-gray-50">
@@ -7,7 +9,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <img
-              src="/images/about.jpg"
+              src={aboutImage}
               alt="小澤繁輝"
               className="w-full h-80 object-cover rounded-2xl shadow-lg"
             />

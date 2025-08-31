@@ -1,3 +1,5 @@
+import heroImage from '../../assets/images/hero.png';
+
 const Hero = () => {
   const scrollToAbout = () => {
     const aboutSection = document.querySelector('#about');
@@ -20,7 +22,7 @@ const Hero = () => {
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: `url('/images/hero.png')`,
+                  backgroundImage: `url(${heroImage})`,
                 }}
               ></div>
               
